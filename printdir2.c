@@ -36,7 +36,7 @@ void printdir(char *dir, int depth)
         closedir(dp);
 }
 
-int main()
+int main(int argc, char* argv[])
 {
 	char *topdir, pwd[2]=".";
 	if (argc != 2)
