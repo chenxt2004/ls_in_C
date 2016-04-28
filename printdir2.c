@@ -4,6 +4,7 @@
 #include <string.h>
 #include <sys/stat.h>
 #include <stdlib.h>
+#include <sys/types.h>
 
 void printdir(char *dir, int depth)
 {
@@ -30,7 +31,7 @@ void printdir(char *dir, int depth)
             /* Recurse at a new indent level */
             printdir(entry->d_name,depth+4);
         }
-        else printf("%*s%s\n",depth,"",entry->d_name);
+        else printf("%*s%s  %ld\n",depth,"",entry->d_name,statbuf.st_size);
         }
         chdir("..");
         closedir(dp);
